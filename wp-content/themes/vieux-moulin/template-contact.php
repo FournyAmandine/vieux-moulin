@@ -1,7 +1,7 @@
 <?php /* Template Name: Page "Contact" */ ?>
 
 <?php get_header(); ?>
-        <h2 class="contact__title">Contactez-nous!</h2>
+        <h1 class="contact__title">Contactez-nous!</h1>
  <?php
 if(have_posts()): while(have_posts()): the_post(); ?>
 
@@ -26,14 +26,14 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                         <div class="contact__form-name">
                             <div class="contact__field">
                                 <label for="firstname" class="contact__field-label">Entrez votre prénom</label>
-                                <input type="text" name="firstname" id="firstname" class="contact__field-input">
+                                <input type="text" name="firstname" id="firstname" class="contact__field-input" placeholder="Laurent">
                                 <?php if(isset($errors['firstname'])): ?>
                                     <p class="contact__field-error"><?= $errors['firstname']; ?></p>
                                 <?php endif; ?>
                             </div>
                             <div class="contact__field">
                                 <label for="lastname" class="contact__field-label">Entrez votre nom</label>
-                                <input type="text" name="lastname" id="lastname" class="contact__field-input">
+                                <input type="text" name="lastname" id="lastname" class="contact__field-input" placeholder="Bourguignon">
                                 <?php if(isset($errors['lastname'])): ?>
                                     <p class="contact__field-error"><?= $errors['lastname']; ?></p>
                                 <?php endif; ?>
@@ -41,7 +41,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                         </div>
                         <div class="contact__field">
                             <label for="email" class="contact__field-label">Entrez votre adresse email</label>
-                            <input type="email" name="email" id="email" class="contact__field-input">
+                            <input type="email" name="email" id="email" class="contact__field-input" placeholder="Laurent.bourguignon@gmail.be">
                             <?php if(isset($errors['email'])): ?>
                                 <p class="contact__field-error"><?= $errors['email']; ?></p>
                             <?php endif; ?>
@@ -63,7 +63,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                         </div>
                         <div class="contact__field">
                             <label for="message" class="contact__field-label">Entrez votre message</label>
-                            <textarea name="message" id="message" class="contact__field-input"></textarea>
+                            <textarea name="message" id="message" class="contact__field-input" placeholder="J'aimerai faire un don..."></textarea>
                             <?php if(isset($errors['message'])): ?>
                                 <p class="contact__field-error"><?= $errors['message']; ?></p>
                             <?php endif; ?>

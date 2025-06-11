@@ -3,9 +3,9 @@
 get_header();?>
 
     <section>
-        <h2>
+        <h1>
             Nos actualités
-        </h2>
+        </h1>
         <div class="news">
             <?php
             $news = new WP_Query([
@@ -24,7 +24,7 @@ get_header();?>
                         <figure class="news__fig">
                             <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'news__img']); ?>
                         </figure>
-                        <h3 class="news__title"><?= get_the_title(); ?></h3>
+                        <h2 class="news__title"><?= get_the_title(); ?></h2>
                         <p><time datetime="<?= date('c', $date = get_field('date')); ?>"><?= date_i18n('d F Y', $date); ?></time></p>
 
                         <?= get_the_excerpt();?>

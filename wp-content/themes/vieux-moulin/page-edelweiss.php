@@ -3,7 +3,7 @@ get_header();
 ?>
 
     <section class="composition">
-        <h2><?= get_the_title(); ?></h2>
+        <h1><?= get_the_title(); ?></h1>
         <div class="compostion__div">
             <?php
             $rooms = new WP_Query([
@@ -24,7 +24,7 @@ get_header();
 
             if ($rooms->have_posts()): while ($rooms->have_posts()): $rooms->the_post(); ?>
                 <div class="composition__card">
-                    <h3 class="composition__title"><?= get_the_title(); ?></h3>
+                    <h2 class="composition__title"><?= get_the_title(); ?></h2>
                     <?= get_the_content(); ?>
                 </div>
             <?php endwhile; wp_reset_postdata(); else: ?>
@@ -33,8 +33,7 @@ get_header();
         </div>
     </section>
 
-    <section class="gallery">
-        <h2 class="gallery__title sro"><?= get_field('gallery_title') ?></h2>
+    <section class="galerie">
         <?php
         $images = get_field('image_gallery');
         foreach ($images as $image):
@@ -44,31 +43,34 @@ get_header();
     </section>
 
     <section class="project">
-        <h2><?= get_field('') ?></h2>
+        <h1><?= get_field('title_projects') ?></h1>
+        <button class="carousel__prev">←</button>
         <div class="project__div">
             <?php
             $projects = new WP_Query([
                 'post_type' => 'projects',
                 'order' => 'ASC',
-                'posts_per_page' => 1,
             ]);
 
             if ($projects->have_posts()): while ($projects->have_posts()): $projects->the_post(); ?>
                 <div class="project__card">
-                    <figure class="house__fig">
+                    <figure class="project__fig">
                         <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'house__img']); ?>
                     </figure>
-                    <h3 class="project__title"><?= get_the_title(); ?></h3>
-                    <p class="project__text"><?= get_field('text'); ?></p>
+                    <div class="project__content">
+                        <h2 class="project__title"><?= get_the_title(); ?></h2>
+                        <p class="project__text"><?= get_field('text'); ?></p>
+                    </div>
                 </div>
             <?php endwhile;
                 wp_reset_postdata(); else: ?>
                 <p>Il n’y a pas de projet pour le moment</p>
             <?php endif; ?>
         </div>
+        <button class="carousel__next">→</button>
     </section>
 
-    <a href="<?= get_field('second_home_link'); ?>">Aller voir le Vieux Moulin</a>
+    <a class="link" href="<?= get_field('second_home_link'); ?>">Aller voir le Vieux Moulin</a>
 
 <?php
 get_footer();

@@ -1,7 +1,8 @@
 <?php /* Template Name: Template News */ ?>
 
 <?php get_header(); ?>
-<h2 class="news__page-title">Nos actualités</h2>
+<h1 class="news__page-title">Nos actualités</h1>
+<section class="news__section">
 <?php
 $paged = get_query_var('paged') ? get_query_var('paged') : 1;
 $taxonomy = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) : '';
@@ -36,42 +37,49 @@ $terms = get_terms([
 $current_filter = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) : '';
 ?>
 
-    <div class="news__filter">
-        <a href="<?= esc_url(get_permalink()); ?>" class="<?= ($current_filter === '') ? 'active-news' : ''; ?>">
+    <div class="news__filters">
+        <a href="<?= esc_url(get_permalink()); ?>" class="<?= ($current_filter === '') ? 'news__active' : 'news__filter'; ?>">
             <?= __('Tout', 'hepl-trad'); ?>
         </a>
 
         <?php foreach ($terms as $term): ?>
             <a href="<?= esc_url(get_permalink()) . '?filter=' . $term->slug; ?>"
-               class="<?= ($current_filter === $term->slug) ? 'active-news' : ''; ?>">
+               class="<?= ($current_filter === $term->slug) ? 'news__active' : 'news__filter'; ?>">
                 <?= esc_html($term->name); ?>
             </a>
         <?php endforeach; ?>
     </div>
+    <div class="news__articles">
+    <button class="carousel__prev">←</button>
 <?php
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
         ?>
-            <article class="news__article">
-                <a href="<?= get_the_permalink(); ?>" class="news__link">
-                    <span class="sro"><?= get_the_title(); ?></span>
-                </a>
-                <div class="news__card">
-                    <figure class="news__fig">
-                        <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'news__img']); ?>
-                    </figure>
-                    <h3 class="news__title"><?= get_the_title(); ?></h3>
-                    <p>
-                        <time datetime="<?= date('c', $date = get_field('date')); ?>"><?= date_i18n('d F Y', $date); ?></time>
-                    </p>
+        <article class="news__article">
+            <a href="<?= get_the_permalink(); ?>" class="news__link">
+                <span class="sro"><?= get_the_title(); ?></span>
+            </a>
+            <div class="news__card">
+                <figure class="news__fig">
+                    <?= wp_get_attachment_image(get_field('profile_image'), 'news'); ?>
+                </figure>
+                <h2 class="news__title"><?= get_the_title(); ?></h2>
+                <p class="news__date">
+                    <time datetime="<?= date('c', $date = get_field('date')); ?>"><?= date_i18n('d F Y', $date); ?></time>
+                </p>
 
-                    <p><?= the_excerpt(); ?></p>
-                </div>
-            </article>
+                <div class="news__text"><?= get_the_excerpt(); ?></div>
+            </div>
+        </article>
     <?php
-    endwhile;
+    endwhile; ?>
+    </div>
 
-    echo '<div class="pagination">';
+    <button class="carousel__next"  id="next__news">→</button>
+</section>
+
+
+    <?php echo '<div class="pagination">';
     echo paginate_links(array(
         'total' => $query->max_num_pages,
         'current' => $paged,
@@ -86,5 +94,7 @@ else :
 endif;
 
 ?>
+
+
 
 <?php get_footer('link'); ?>

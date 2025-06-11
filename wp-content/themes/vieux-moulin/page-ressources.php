@@ -3,9 +3,9 @@
 get_header();
 
 ?>
-    <h2>Ressources</h2>
 
     <div class="resource">
+    <h1 class="resource__page-title">Ressources</h1>
         <?php
         $resources = new WP_Query([
             'post_type' => 'resources',

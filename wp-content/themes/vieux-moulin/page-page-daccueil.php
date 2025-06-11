@@ -1,10 +1,10 @@
 <?php get_header(); ?>
-<h2 class="front__title"><?= get_the_title(); ?></h2>
+<h1 class="front__title"><?= get_the_title(); ?></h1>
 
 <section class="srg">
     <div class="srg__container">
         <div class="srg__text">
-            <h3 class="srg__title"><?= get_field('title_srg'); ?></h3>
+            <h2 class="srg__title"><?= get_field('title_srg'); ?></h2>
             <?= get_field('text_srg') ?>
             <a class="srg__link" href="<?= get_field('link_srg') ?>">En découvrir plus sur le Vieux Moulin</a>
         </div>
@@ -20,9 +20,10 @@
 </section>
 
 <section class="news">
-    <h3>
+    <h2>
         Dernières actualités
-    </h3>
+    </h2>
+    <button class="carousel__prev">←</button>
     <div class="news__container">
         <?php
         $news = new WP_Query([
@@ -34,7 +35,7 @@
         ]);
 
         if ($news->have_posts()): while ($news->have_posts()): $news->the_post(); ?>
-            <article class="news__article">
+            <article class="news__article--<?= esc_attr(get_post_field('post_name')); ?>">
                 <a href="<?= get_the_permalink(); ?>" class="news__link">
                     <span class="sro"><?= get_the_title(); ?></span>
                 </a>
@@ -51,7 +52,7 @@
                             endforeach;
                         endif;
                         ?>
-                        <h4 class="news__title"><?= get_the_title(); ?></h4>
+                        <h3 class="news__title"><?= get_the_title(); ?></h3>
                         <?php
                         $date = get_field('date');
                         if ($date): ?>
@@ -69,10 +70,13 @@
             <p>Il n’y a pas d’actualités récentes pour le moment</p>
         <?php endif; ?>
     </div>
+    <button class="carousel__next">→</button>
+    <a class="news__more" href="<?= get_permalink(88) ?>">Voir plus d'actualités</a>
 </section>
 
 <section class="house">
-    <h3 class="house__title-first"><?= get_field('title_houses') ?></h3>
+    <h1 class="house__title-first"><?= get_field('title_houses') ?></h1>
+    <button class="carousel__prev">←</button>
     <div class="house__container">
         <?php
         $houses = new WP_Query([
@@ -87,7 +91,7 @@
                         <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'house__img']); ?>
                     </figure>
                     <div class="house__text">
-                        <h4 class="house__title"><?= get_field('title_houses') ?></h4>
+                        <h2 class="house__title"><?= get_field('title_houses') ?></h2>
                         <div class="house__description">
                             <?= get_the_excerpt(); ?>
                         </div>
@@ -100,13 +104,14 @@
             <p>Il n’y a pas de foyer pour vous</p>
         <?php endif; ?>
     </div>
+    <button class="carousel__next">→</button>
 </section>
 
 <section class="donations">
     <div class="donations__container">
         <div class="donations__content">
             <div class="donations__text">
-                <h3 class="donations__title"><?= get_field('title_donations'); ?></h3>
+                <h1 class="donations__title"><?= get_field('title_donations'); ?></h1>
                 <div class="donations__explanation">
                     <?= get_field('text_donations') ?>
                 </div>
@@ -123,7 +128,7 @@
     <div class="family__container">
         <div class="family__content">
             <div class="family__text">
-                <h3 class="family__title"><?= get_field('title_family'); ?></h3>
+                <h1 class="family__title"><?= get_field('title_family'); ?></h1>
                 <?= get_field('text_family') ?>
             </div>
             <div class="family__figures">
@@ -139,7 +144,7 @@
 </section>
 
 <section class="faq">
-    <h3 class="faq__title">FAQ</h3>
+    <h1 class="faq__title">FAQ</h1>
     <div class="faq__container">
         <?php
         $themes = get_terms([
@@ -165,7 +170,7 @@
             if ($faqs->have_posts()):
                 while ($faqs->have_posts()): $faqs->the_post(); ?>
                     <div class="faq__item">
-                        <button class="faq__question"><?= get_the_title(); ?> <span class="faq__arrow">▼</span></button>
+                        <button class="faq__question"><?= get_the_title(); ?> <span class="arrow">▼</span></button>
                         <div class="faq__answer">
                             <?= get_the_content(); ?>
                         </div>
@@ -183,9 +188,8 @@
     </div>
 </section>
 
-
 <section class="helper">
-    <h3 class="helper__title"><?= get_field('title_helpers') ?></h3>
+    <h1 class="helper__title"><?= get_field('title_helpers') ?></h1>
     <div class="helper__container">
         <?php
         $helpers = new WP_Query([
@@ -209,7 +213,10 @@
 </section>
 
 <figure class="moulin__fig">
-    <?= wp_get_attachment_image(get_field('moulin_image'), size: 'small', attr: ['class' => 'moulin__img']); ?>
+    <img src="/wp-content/themes/vieux-moulin/resources/img/Vieux-Moulin.svg" alt="Vieux Moulin en dessin">
+</figure>
+<figure class="moulin__fig-phone">
+    <img src="/wp-content/themes/vieux-moulin/resources/img/Moulin.svg" alt="Vieux Moulin en dessin">
 </figure>
 
 <?php get_footer(); ?>

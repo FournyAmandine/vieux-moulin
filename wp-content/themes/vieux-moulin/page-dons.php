@@ -3,9 +3,13 @@ get_header();
 ?>
 
     <section class="presentation">
-        <h2><?= get_the_title(); ?></h2>
-        <?= get_field('subtitle'); ?>
-        <?= get_field('text') ?>
+        <h1><?= get_the_title(); ?></h1>
+        <div class="presentation__subtitle">
+            <?= get_field('subtitle'); ?>
+        </div>
+        <div class="presentation__text">
+            <?= get_field('text') ?>
+        </div>
     </section>
 
     <section class="code">
@@ -18,9 +22,10 @@ get_header();
         </div>
     </section>
 
-    <section class="activity">
-        <h2><?= get_field('title_activities'); ?></h2>
-        <div class="activity__container">
+    <section class="activities">
+        <h1><?= get_field('title_activities'); ?></h1>
+        <button class="carousel__prev">←</button>
+        <div class="activities__container">
             <?php
             $activities = new WP_Query([
                 'post_type' => 'news',
@@ -38,11 +43,11 @@ get_header();
                 ],
             ]);
 
+
             if ($activities->have_posts()): while ($activities->have_posts()): $activities->the_post(); ?>
-                <div class="activity__card">
-                    <figure class="activity__fig">
-                        <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'activity__img']); ?>
-                    </figure>
+                <div class="activities__card">
+                    <figure class="activities__fig">
+                        <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'activities__img']); ?>
                     <?php
                     $images = get_field('image_gallery');
                     if ($images):
@@ -51,26 +56,30 @@ get_header();
                         endforeach;
                     endif;
                     ?>
-                    <h3 class="activity__title"><?= get_the_title(); ?></h3>
+                    </figure>
+                    <h2 class="activities__title"><?= get_the_title(); ?></h2>
                     <?php
                     $date = get_field('date');
                     if ($date): ?>
-                        <p>
+                        <p class="activities__date">
                             <time datetime="<?= date('c', $date) ?>">
                                 <?= date_i18n('d F Y', $date); ?>
                             </time>
                         </p>
                     <?php endif; ?>
-                    <?= get_the_excerpt(); ?>
+                    <p class="activities__text">
+                        <?= get_the_excerpt(); ?>
+                    </p>
                 </div>
             <?php endwhile;
                 wp_reset_postdata(); else: ?>
                 <p>Il n’y a pas d’actualités pour le moment</p>
             <?php endif; ?>
+                <button class="carousel__next">→</button>
     </section>
 
     <section class="partner">
-        <h2 class="partner__title"><?= get_field('title_partners') ?></h2>
+        <h1 class="partner__title"><?= get_field('title_partners') ?></h1>
         <div class="partner__container">
             <?php
             $partners = new WP_Query([
@@ -88,7 +97,7 @@ get_header();
                         <figure class="partner__fig">
                             <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'partner__img']); ?>
                         </figure>
-                        <h3 class="partner__title"><?= get_the_title(); ?></h3>
+                        <h2 class="partner__title"><?= get_the_title(); ?></h2>
                     </div>
                 </article>
             <?php endwhile; wp_reset_postdata(); else: ?>

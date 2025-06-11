@@ -3,7 +3,7 @@ get_header();
 ?>
 
     <section class="composition">
-        <h2><?= get_the_title(); ?></h2>
+        <h1><?= get_the_title(); ?></h1>
         <div class="compostion__container">
             <?php
             $rooms = new WP_Query([
@@ -24,8 +24,10 @@ get_header();
 
             if ($rooms->have_posts()): while ($rooms->have_posts()): $rooms->the_post(); ?>
                 <div class="composition__card">
-                    <h3 class="composition__title"><?= get_the_title(); ?></h3>
-                    <?= get_the_content(); ?>
+                    <h2 class="composition__title"><?= get_the_title(); ?></h2>
+                    <div class="composition__text">
+                        <?= get_the_content(); ?>
+                    </div>
                 </div>
             <?php endwhile;
                 wp_reset_postdata(); else: ?>
@@ -34,8 +36,7 @@ get_header();
         </div>
     </section>
 
-    <section class="gallery">
-        <h2 class="gallery__title sro"><?= get_field('gallery_title') ?></h2>
+    <section class="galerie">
         <?php
         $images = get_field('image_gallery');
         foreach ($images as $image):
@@ -56,15 +57,17 @@ get_header();
             if ($layouts->have_posts()): while ($layouts->have_posts()): $layouts->the_post(); ?>
                 <div class="layout__card">
                     <h2 class="layout__title"><?= get_the_title(); ?></h2>
-                    <p><?= get_the_content(); ?></p>
-                    <?php
-                    $images = get_field('image_gallery');
-                    if ($images):
-                        foreach ($images as $image):
-                            echo '<img src="' . esc_url($image['sizes']['medium']) . '" alt="' . esc_attr($image['alt']) . '" />';
-                        endforeach;
-                    endif;
-                    ?>
+                    <p class="layout__text"><?= get_the_content(); ?></p>
+                    <div class="layout__fig">
+                        <?php
+                        $images = get_field('image_gallery');
+                        if ($images):
+                            foreach ($images as $image):
+                                echo '<img src="' . esc_url($image['sizes']['medium']) . '" alt="' . esc_attr($image['alt']) . '" />';
+                            endforeach;
+                        endif;
+                        ?>
+                    </div>
                 </div>
             <?php endwhile;
                 wp_reset_postdata(); else: ?>
@@ -74,31 +77,34 @@ get_header();
     </section>
 
     <section class="project">
-        <h2><?= get_field('') ?></h2>
+        <h1><?= get_field('title_projects') ?></h1>
+        <button class="carousel__prev">←</button>
         <div class="project__div">
             <?php
             $projects = new WP_Query([
                 'post_type' => 'projects',
                 'order' => 'ASC',
-                'posts_per_page' => 1,
             ]);
 
             if ($projects->have_posts()): while ($projects->have_posts()): $projects->the_post(); ?>
                 <div class="project__card">
-                    <figure class="house__fig">
+                    <figure class="project__fig">
                         <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'house__img']); ?>
                     </figure>
-                    <h3 class="project__title"><?= get_the_title(); ?></h3>
-                    <p class="project__text"><?= get_field('text'); ?></p>
+                    <div class="project__content">
+                        <h2 class="project__title"><?= get_the_title(); ?></h2>
+                        <div class="project__text"><?= get_field('text'); ?></div>
+                    </div>
                 </div>
             <?php endwhile;
                 wp_reset_postdata(); else: ?>
                 <p>Il n’y a pas de projets pour le moment</p>
             <?php endif; ?>
         </div>
+        <button class="carousel__next">→</button>
     </section>
 
-    <a href="<?= get_field('second_home_link'); ?>">Aller voir l’Edelweiss</a>
+    <a class="link" href="<?= get_permalink(46); ?>">Aller voir l’Edelweiss</a>
 
 
 <?php
