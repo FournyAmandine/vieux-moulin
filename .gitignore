@@ -7,3 +7,5 @@ wp-content/themes/*
 !wp-content/themes/vieux-moulin/
 !wp-content/themes/vieux-moulin/*
 !wp-content/themes/vieux-moulin/*/*
+
+/vendor/
