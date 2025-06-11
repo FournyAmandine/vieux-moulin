@@ -17,4 +17,3 @@ include_once('functions/contact-forms.php');
 include_once('functions/options-page.php');
 include_once('fields.php');
 include_once('functions/classes.php');
-require_once __DIR__ . '/../../../vendor/autoload.php';

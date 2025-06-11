@@ -1,11 +1,17 @@
 <?php
+
+
+use DW_Theme\Forms\ContactForm;
+
+require __DIR__ . '/../forms/ContactForm.php';
+
 add_action('admin_post_nopriv_dw_submit_contact_form', 'dw_handle_contact_form');
 add_action('admin_post_dw_submit_contact_form', 'dw_handle_contact_form');
 
 function dw_handle_contact_form()
 {
 
-    $form = (new DW_Theme\Forms\ContactForm('contact_message'))
+    $form = (new ContactForm('contact_message'))
 
         ->rule('firstname', 'required')
         ->rule('lastname', 'required')
