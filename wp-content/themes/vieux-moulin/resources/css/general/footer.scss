@@ -1,0 +1,268 @@
+@import "../settings/breakpoints";
+
+footer{
+  background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Footer-fond.svg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+body.home-page footer{
+  margin-top: -30.625em;
+  position: absolute;
+  z-index: 10;
+}
+
+.details{
+  padding: 5.625em 2.5em 1em;
+  font-weight: 400;
+  &_title{
+    padding: 1.1764705882em 0 1.2777777778em;
+    font-family: 'Sulphur Point', serif;
+    font-size: 2.125em;
+    border-top: 3px solid black;
+  }
+  &__container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 1.75em;
+  }
+  &-director{
+    &__container{
+      margin-bottom: 2.5em;
+    }
+  }
+  &-srg{
+    &__title{
+    }
+  }
+  &-srg, &-director{
+    &__title{
+      font-weight: 400;
+      font-size: 1.5em;
+      margin-bottom: 1.25em;
+    }
+    &__information{
+      margin-top: 1.25em;
+      line-height: 1.25em;
+    }
+  }
+  address.details-srg__information{
+    font-style: normal;
+  }
+  &-map__container{
+    display: none;
+    &-phone{
+      margin-top: 1.375em;
+      width: 100%;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: $home) {
+  body.home-page footer{
+    margin-top: -31.625em;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .details{
+    padding: 5.625em 6em 1em;
+  }
+}
+
+
+@media (min-width: $tablet) {
+  .details{
+    &__container{
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+    &-srg{
+      &__container{
+        width: 50%;
+      }
+    }
+    &-map__container{
+      display: block;
+      margin: auto;
+      &-phone{
+        display: none;
+      }
+    }
+  }
+
+  .more{
+    &__item{
+      width: 53%;
+      margin-bottom: 45px;
+    }
+    &__link{
+      width: 40%;
+    }
+  }
+}
+
+.more{
+  padding: 10.75em 0 2.5em;
+  font-weight: 400;
+  span{
+    margin-top: 0.625em;
+  }
+  &__title{
+    font-family: "Sulphur Point", serif;
+    margin: 0.3em auto 0.9166666667em;
+    text-align: left;
+    font-size: 2.125em;
+    width: 75%;
+  }
+  &__list{
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    padding-bottom: 1.875em;
+    padding-top: 2em;
+  }
+  &__item{
+    height: 200px;
+    width: 73%;
+    margin-bottom: 45px;
+  }
+  &__link{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-decoration: none;
+    color: black;
+    font-size: 1.25em;
+    width: 63%;
+    height: 170px;
+    position: absolute;
+    padding: .75em .85em 1.05em;
+    border: 3px black solid;
+    border-radius: 10px;
+  }
+  &__text{
+    display: inline-block;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    width: 85%;
+    p{
+      width: 100%;
+    }
+  }
+  &__home{
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Logo-client.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    text-indent: -33.5em;
+    margin-top: 1.1875em;
+    &-link{
+      display: inline-block;
+      width: 9.875em;
+      height: 9.875em;
+      margin-left: 35.75em;
+    }
+    &-span{
+      visibility: hidden;
+    }
+  }
+}
+
+
+@media (min-width: $nav) {
+  body.home-page footer{
+  }
+  footer{
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/png/footer.png');
+  }
+
+  .details{
+    padding: 11.5em 2.25em 0 4.375em;
+    &_title{
+      padding-bottom: 1.2777777778em;
+      font-size: 2.25em;
+      border: none;
+    }
+    &__container{
+      flex-direction: row;
+      justify-content: left;
+      padding-bottom: 1.75em;
+    }
+    &-director{
+      &__container{
+        margin-left: 1.25em;
+        margin-right: 8.125em;
+        width: 21.50%;
+      }
+    }
+    &-srg{
+      &__container{
+        margin-right: 6.875em;
+        width: 25%;
+      }
+    }
+
+    &-map__container{
+      width: 30%;
+      img{
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .more{
+    &__title{
+      font-size: 3em;
+      text-align: center;
+    }
+    &__list{
+      padding-bottom: 1.875em;
+      width: 86.7346938776%;
+      flex-direction: row;
+      align-items: center;
+    }
+    &__item{
+      width: 21.8823529412%;
+    }
+    &__link{
+      width: 16%;
+      height: 170px;
+      margin-right: 2.25em;
+      max-height: none;
+    }
+    &__home{
+      text-indent: -10.5em;
+      &-link{
+        margin-left: 11em;
+      }
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  footer{
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/png/fond-grand.png');
+    background-size: cover;
+    .more{
+      padding-top: 15.75em;
+      &__link{
+        height: 270px;
+        border: 5px black solid;
+      }
+      &__text{
+        width: 100%;
+      }
+      &__item{
+        height: 500px;
+      }
+    }
+  }
+}

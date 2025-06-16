@@ -1,0 +1,23 @@
+@import '../settings/breakpoints';
+
+.not-found{
+  width: 90%;
+  margin: auto;
+  line-height: 1.5em;
+  a{
+    color: black;
+    text-decoration: none;
+  }
+  &__title{
+    margin-left: 2.5em;
+  }
+  &__message:last-of-type{
+    margin-top: 1.25em;
+  }
+}
+
+@media (min-width: $desktop) {
+  .not-found{
+    width: 80%;
+  }
+}

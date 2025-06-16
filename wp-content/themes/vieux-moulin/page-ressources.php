@@ -20,7 +20,7 @@ get_header();
                 <button class="resource__title"><?= get_the_title(); ?> <span class="arrow">▼</span></button>
                 <?php if ($file): ?>
                     <div class="resource__content">
-                        <a href="<?= esc_url($file['url']); ?>" download>
+                        <a href="<?= esc_url($file['url']); ?>" download  target="_blank" rel="noopener" aria-label="Télécharger le fichier <?= esc_html($file['filename']); ?>">
                             Télécharger <?= esc_html($file['filename']); ?>
                         </a>
                     </div>
@@ -29,7 +29,7 @@ get_header();
         <?php endwhile;
             wp_reset_postdata();
         else: ?>
-            <p>Il n’y a pas de missions pour le moment</p>
+            <p>Il n’y a pas de ressources pour le moment</p>
         <?php endif; ?>
     </div>
 

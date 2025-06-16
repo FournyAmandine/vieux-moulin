@@ -26,14 +26,14 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                         <div class="contact__form-name">
                             <div class="contact__field">
                                 <label for="firstname" class="contact__field-label">Entrez votre prénom</label>
-                                <input type="text" name="firstname" id="firstname" class="contact__field-input" placeholder="Laurent">
+                                <input type="text" name="firstname" id="firstname" class="contact__field-input" placeholder="Laurent" required aria-required="true">
                                 <?php if(isset($errors['firstname'])): ?>
                                     <p class="contact__field-error"><?= $errors['firstname']; ?></p>
                                 <?php endif; ?>
                             </div>
                             <div class="contact__field">
                                 <label for="lastname" class="contact__field-label">Entrez votre nom</label>
-                                <input type="text" name="lastname" id="lastname" class="contact__field-input" placeholder="Bourguignon">
+                                <input type="text" name="lastname" id="lastname" class="contact__field-input" placeholder="Bourguignon" required aria-required="true">
                                 <?php if(isset($errors['lastname'])): ?>
                                     <p class="contact__field-error"><?= $errors['lastname']; ?></p>
                                 <?php endif; ?>
@@ -41,14 +41,14 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                         </div>
                         <div class="contact__field">
                             <label for="email" class="contact__field-label">Entrez votre adresse email</label>
-                            <input type="email" name="email" id="email" class="contact__field-input" placeholder="Laurent.bourguignon@gmail.be">
+                            <input type="email" name="email" id="email" class="contact__field-input" placeholder="Laurent.bourguignon@gmail.be" required aria-required="true">
                             <?php if(isset($errors['email'])): ?>
                                 <p class="contact__field-error"><?= $errors['email']; ?></p>
                             <?php endif; ?>
                         </div>
                         <div class="contact__field">
                             <label for="subject" class="contact__field-label">Sélectionner votre sujet</label>
-                            <select class="contact__field-select" name="subject" id="subject">
+                            <select class="contact__field-select" name="subject" id="subject" required aria-required="true">
                                 <option value="Choix">Choisissez une option</option>
                                 <option value="Dons">Dons</option>
                                 <option value="Bénévolat">Bénévolat</option>
@@ -63,7 +63,7 @@ if(have_posts()): while(have_posts()): the_post(); ?>
                         </div>
                         <div class="contact__field">
                             <label for="message" class="contact__field-label">Entrez votre message</label>
-                            <textarea name="message" id="message" class="contact__field-input" placeholder="J'aimerai faire un don..."></textarea>
+                            <textarea name="message" id="message" class="contact__field-input" placeholder="J'aimerai faire un don..." required aria-required="true"></textarea>
                             <?php if(isset($errors['message'])): ?>
                                 <p class="contact__field-error"><?= $errors['message']; ?></p>
                             <?php endif; ?>

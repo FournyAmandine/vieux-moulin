@@ -3,7 +3,7 @@ get_header();
 ?>
 
     <section class="presentation">
-        <h1><?= get_the_title(); ?></h1>
+        <h1><?= esc_html(get_the_title()); ?></h1>
         <div class="presentation__subtitle">
             <?= get_field('subtitle'); ?>
         </div>
@@ -23,8 +23,8 @@ get_header();
     </section>
 
     <section class="activities">
-        <h1><?= get_field('title_activities'); ?></h1>
-        <button class="carousel__prev">←</button>
+        <h2><?= get_field('title_activities'); ?></h2>
+        <button id="prev-activity" aria-label="Voir l'activité précédente" class="carousel__prev js-only">←</button>
         <div class="activities__container">
             <?php
             $activities = new WP_Query([
@@ -48,16 +48,18 @@ get_header();
                 <div class="activities__card">
                     <figure class="activities__fig">
                         <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'activities__img']); ?>
-                    <?php
-                    $images = get_field('image_gallery');
-                    if ($images):
-                        foreach ($images as $image):
-                            echo '<img src="' . esc_url($image['sizes']['medium']) . '" alt="' . esc_attr($image['alt']) . '" />';
-                        endforeach;
-                    endif;
-                    ?>
+                        <?php if( have_rows('image_gallery') ): ?>
+                            <div class="activities__images">
+                                <?php while( have_rows('image_gallery') ): the_row();
+                                    $image = get_sub_field('image_alone');
+                                    if ($image): ?>
+                                        <img src="<?= esc_url($image['sizes']['medium']) ?>" alt="<?= esc_attr($image['alt']) ?>" />
+                                    <?php endif; ?>
+                                <?php endwhile; ?>
+                            </div>
+                        <?php endif; ?>
                     </figure>
-                    <h2 class="activities__title"><?= get_the_title(); ?></h2>
+                    <h3 class="activities__title"><?= get_the_title(); ?></h3>
                     <?php
                     $date = get_field('date');
                     if ($date): ?>
@@ -75,11 +77,11 @@ get_header();
                 wp_reset_postdata(); else: ?>
                 <p>Il n’y a pas d’actualités pour le moment</p>
             <?php endif; ?>
-                <button class="carousel__next">→</button>
+                <button id="next-activity" aria-label="Voir l'activité suivante" class="carousel__next js-only">→</button>
     </section>
 
     <section class="partner">
-        <h1 class="partner__title"><?= get_field('title_partners') ?></h1>
+        <h2 class="partner__title"><?= get_field('title_partners') ?></h2>
         <div class="partner__container">
             <?php
             $partners = new WP_Query([
@@ -97,7 +99,7 @@ get_header();
                         <figure class="partner__fig">
                             <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'partner__img']); ?>
                         </figure>
-                        <h2 class="partner__title"><?= get_the_title(); ?></h2>
+                        <h3 class="partner__title"><?= get_the_title(); ?></h3>
                     </div>
                 </article>
             <?php endwhile; wp_reset_postdata(); else: ?>

@@ -49,8 +49,8 @@ $current_filter = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) 
             </a>
         <?php endforeach; ?>
     </div>
-    <div class="news__articles">
-    <button class="carousel__prev">←</button>
+    <div class="news__div">
+    <button class="carousel__prev js-only" aria-label="Voir l'actualité précédente" id="prev-news">←</button>
 <?php
 if ($query->have_posts()) :
     while ($query->have_posts()) : $query->the_post();
@@ -60,7 +60,7 @@ if ($query->have_posts()) :
                 <span class="sro"><?= get_the_title(); ?></span>
             </a>
             <div class="news__card">
-                <figure class="news__fig">
+                <figure class="news__image">
                     <?= wp_get_attachment_image(get_field('profile_image'), 'news'); ?>
                 </figure>
                 <h2 class="news__title"><?= get_the_title(); ?></h2>
@@ -75,7 +75,7 @@ if ($query->have_posts()) :
     endwhile; ?>
     </div>
 
-    <button class="carousel__next"  id="next__news">→</button>
+    <button class="carousel__next js-only"  id="next__news" aria-label="Voir l'actualité suivante">→</button>
 </section>
 
 

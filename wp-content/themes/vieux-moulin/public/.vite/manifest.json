@@ -1,0 +1,53 @@
+{
+  "wp-content/themes/vieux-moulin/resources/css/styles.scss": {
+    "file": "assets/css-Dc7s6vM4.css",
+    "src": "wp-content/themes/vieux-moulin/resources/css/styles.scss",
+    "isEntry": true
+  },
+  "wp-content/themes/vieux-moulin/resources/fonts/Comfortaa/static/Comfortaa-Regular.ttf": {
+    "file": "assets/Comfortaa-Regular-DS1_LMBi.ttf",
+    "src": "wp-content/themes/vieux-moulin/resources/fonts/Comfortaa/static/Comfortaa-Regular.ttf"
+  },
+  "wp-content/themes/vieux-moulin/resources/fonts/Nunito/static/Nunito-Medium.ttf": {
+    "file": "assets/Nunito-Medium-L5wTUp6G.ttf",
+    "src": "wp-content/themes/vieux-moulin/resources/fonts/Nunito/static/Nunito-Medium.ttf"
+  },
+  "wp-content/themes/vieux-moulin/resources/fonts/Nunito/static/Nunito-Regular.ttf": {
+    "file": "assets/Nunito-Regular-BzIFT1ox.ttf",
+    "src": "wp-content/themes/vieux-moulin/resources/fonts/Nunito/static/Nunito-Regular.ttf"
+  },
+  "wp-content/themes/vieux-moulin/resources/fonts/Sulphur_Point/SulphurPoint-Bold.ttf": {
+    "file": "assets/SulphurPoint-Bold-utlPuRzj.ttf",
+    "src": "wp-content/themes/vieux-moulin/resources/fonts/Sulphur_Point/SulphurPoint-Bold.ttf"
+  },
+  "wp-content/themes/vieux-moulin/resources/fonts/Sulphur_Point/SulphurPoint-Regular.ttf": {
+    "file": "assets/SulphurPoint-Regular-BZDzFO0h.ttf",
+    "src": "wp-content/themes/vieux-moulin/resources/fonts/Sulphur_Point/SulphurPoint-Regular.ttf"
+  },
+  "wp-content/themes/vieux-moulin/resources/img/Fond.jpg": {
+    "file": "assets/Fond-DHvPIJjY.jpg",
+    "src": "wp-content/themes/vieux-moulin/resources/img/Fond.jpg"
+  },
+  "wp-content/themes/vieux-moulin/resources/img/png/fond-grand.png": {
+    "file": "assets/fond-grand-DUItzObm.png",
+    "src": "wp-content/themes/vieux-moulin/resources/img/png/fond-grand.png"
+  },
+  "wp-content/themes/vieux-moulin/resources/img/png/footer.png": {
+    "file": "assets/footer-BTAzUPPm.png",
+    "src": "wp-content/themes/vieux-moulin/resources/img/png/footer.png"
+  },
+  "wp-content/themes/vieux-moulin/resources/img/svg/Fond-tel.svg": {
+    "file": "assets/Fond-tel-DcmcNGNG.svg",
+    "src": "wp-content/themes/vieux-moulin/resources/img/svg/Fond-tel.svg"
+  },
+  "wp-content/themes/vieux-moulin/resources/img/svg/Logo-client.svg": {
+    "file": "assets/Logo-client-xCgB75Zz.svg",
+    "src": "wp-content/themes/vieux-moulin/resources/img/svg/Logo-client.svg"
+  },
+  "wp-content/themes/vieux-moulin/resources/js/main.js": {
+    "file": "assets/js-D8WK5swA.js",
+    "name": "js",
+    "src": "wp-content/themes/vieux-moulin/resources/js/main.js",
+    "isEntry": true
+  }
+}

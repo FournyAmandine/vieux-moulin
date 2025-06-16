@@ -1,0 +1,199 @@
+@import '../settings/breakpoints';
+
+
+
+.presentation{
+  &__subtitle, &__text{
+    width: 90%;
+    margin: auto;
+    line-height: 1.5em;
+  }
+  &__text{
+    margin-top: 5em;
+    ul{
+      margin-left: 1.5em;
+      li{
+        list-style-type: disc;
+      }
+    }
+    p{
+      margin-top: 1.5em;
+    }
+    p:first-child{
+      font-weight: 700;
+      font-size: 1.25em;
+      font-family: "Sulphur Point", serif;
+    }
+  }
+}
+
+.code{
+  display: flex;
+  flex-direction: column;
+  gap: 1.875em;
+  align-items: center;
+  line-height: 1.5em;
+  &__container{
+    margin: auto;
+    width: max-content;
+    h2{
+      font-size: 1.5em;
+      margin-bottom: 1.25em;
+    }
+  }
+}
+
+.partner{
+  &__container{
+    display: flex;
+    overflow-x: scroll;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 4em;
+    gap: 2.5em;
+  }
+  &__card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2em;
+  }
+  h3{
+    font-size: 1.5em;
+  }
+}
+
+.activities{
+  .carousel__prev{
+    top: 10.5em;
+  }
+  position: relative;
+  h2{
+    margin-right: 3px;
+  }
+  &__container{
+    display: flex;
+    margin-top: 2.5em;
+    position: relative;
+    line-height: 1.5em;
+    gap: 2.5em;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+  &__card{
+    flex-direction: column;
+    align-items: center;
+    width: 70%;
+    margin: auto;
+    display: flex;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__fig{
+    display: flex;
+    gap: 7px;
+    overflow-x: scroll;
+    width: 100%;
+  }
+  &__text{
+    width: 75%;
+    margin: auto;
+  }
+  &__title{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 1em auto;
+    text-align: center;
+  }
+  &__date{
+    font-family: "Sulphur Point", serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+  }
+  &__images{
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+}
+
+
+@media (min-width: $tablet) {
+  .activities{
+    &__container{
+      div{
+        display: flex;
+      }
+    }
+    &__fig{
+      width: 90%;
+    }
+  }
+}
+
+
+@media (min-width: $desktop) {
+
+  .code{
+    flex-direction: row;
+    width: 50%;
+    &__container{
+      width: 35%;
+    }
+  }
+
+  .activities{
+    &__container{
+      div{
+        display: flex !important;
+      }
+    }
+    &__fig{
+    }
+  }
+}
+
+@media (min-width: $middle-desktop) {
+  .activities{
+    &__card:first-of-type{
+      max-width: 25%;
+    }
+    &__fig{
+      width: 100%;
+      img{
+        width: 150%;
+        height: auto;
+      }
+    }
+  }
+  .code{
+    &__container{
+      width: 100%;
+    }
+    &__fig{
+      width: 100%;
+      height: auto;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  .partner{
+    &__fig{
+      img{
+        width: 130%;
+        height: auto;
+      }
+    }
+  }
+}
+

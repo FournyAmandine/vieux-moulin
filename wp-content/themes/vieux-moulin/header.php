@@ -16,37 +16,38 @@
 <header>
     <nav class="nav" aria-label="Navigation principale">
         <div class="nav__phone">
-            <a class="nav__item--Accueil" hreflang="fr" href="<?= get_home_url() ?>"><span>Vieux Moulin</span></a>
-            <ul class="nav__container">
-                <?php foreach (dw_get_navigation_links('header') as $link): ?>
-                    <li class="nav__item nav__item--<?= $link->label; ?>">
-                        <a href="<?= $link->href; ?>" class="nav__link"><?= $link->label; ?></a>
-                        <?php if (!empty($link->children)): ?>
-                            <span class="arrow">▼</span>
-                            <ul class="nav__submenu">
-                                <?php foreach ($link->children as $sublink): ?>
-                                    <li class="nav__submenu-item">
-                                        <a href="<?= $sublink->href; ?>"
-                                           class="nav__submenu-link"><?= $sublink->label; ?></a>
-                                    </li>
-                                <?php endforeach; ?>
-                            </ul>
-
-                        <?php endif; ?>
-                    </li>
-                <?php endforeach; ?>
-            </ul>
-            <div class="nav__soutenir">
-                <a href="<?= get_permalink(30) ?>" class="nav__soutenir-link">Nous soutenir</a>
-            </div>
-            <button class="nav__toggle" aria-expanded="false" aria-label="Menu">
+            <a class="nav__item--Accueil" hreflang="fr" href="<?= get_home_url() ?>" title="Aller à la page d'accueil"><span>Vieux Moulin</span></a>
+            <input class="nav__check" type="checkbox" id="menu-toggle">
+            <label class="nav__toggle" aria-expanded="false" aria-label="Menu principal" for="menu-toggle">
                 <svg class="nav__svg" width="30" height="30" viewBox="0 0 30 30" fill="none"
                      xmlns="http://www.w3.org/2000/svg">
                     <path class="nav__path" d="M6.25 9.30469H23.75" stroke-width="2"></path>
                     <path class="nav__path" d="M6.25 15.554H23.75" stroke-width="2"></path>
                     <path class="nav__path" d="M6.25 21.8047H23.75" stroke-width="2"></path>
                 </svg>
-            </button>
+            </label>
+            <ul class="nav__container">
+                <?php foreach (dw_get_navigation_links('header') as $link): ?>
+                    <li class="nav__item nav__item--<?= $link->label; ?>">
+                        <a title="Aller vers <?= $link->label; ?>" href="<?= $link->href; ?>" class="nav__link"><?= $link->label; ?></a>
+                        <?php if (!empty($link->children)): ?>
+                            <span class="arrow">▼</span>
+                            <ul class="nav__submenu">
+                                <?php foreach ($link->children as $sublink): ?>
+                                    <li class="nav__submenu-item">
+                                        <a title="Aller vers <?= $sublink->label; ?>" href="<?= $sublink->href; ?>"
+                                           class="nav__submenu-link"><?= $sublink->label; ?></a>
+                                    </li>
+                                <?php endforeach; ?>
+                            </ul>
+                        <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+            </ul>
+            <div class="nav__soutenir">
+                <a href="<?= get_permalink(30) ?>" title="Aller faire un don" class="nav__soutenir-link">Nous soutenir</a>
+            </div>
         </div>
+    </nav>
 </header>
 <main>

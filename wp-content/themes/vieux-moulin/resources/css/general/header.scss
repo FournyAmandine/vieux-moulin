@@ -1,0 +1,258 @@
+@import "../settings/breakpoints";
+
+
+
+.nav {
+  padding: 14px 0;
+
+  &__container {
+    flex-direction: column;
+    display: none;
+    padding: 2rem;
+  }
+
+  &__check{
+    display: none;
+  }
+  #menu-toggle:checked ~ .nav__container {
+    background-color: white;
+    display: flex;
+    z-index: 3;
+    position: absolute;
+    width: 40%;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    text-align: right;
+    border: solid 1px var(--main-color);
+    border-top: none;
+
+    li {
+      margin-bottom: 30px;
+    }
+
+    a:hover{
+      pointer-events: auto;
+      text-decoration: underline;
+      text-decoration-color: #B87BF9;
+      text-decoration-thickness: 2px;
+    }
+
+    li:first-of-type {
+      margin-top: 70px;
+    }
+
+    li:last-of-type {
+      position: relative;
+    }
+
+    .nav__item--Lieux.de.vie > ul {
+      display: none;
+    }
+
+    .nav__item--Lieux.de.vie:hover > ul {
+      display: block;
+    }
+
+    &-link {
+      color: black;
+      text-decoration: none;
+    }
+  }
+
+  &__submenu{
+    margin-top: -2.6em;
+    li:last-of-type{
+      margin-bottom: 0;
+    }
+  }
+
+  &__phone {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: black solid 1px;
+    width: 90%;
+    padding: 16px 0;
+    margin: auto;
+  }
+
+  &__soutenir {
+    display: none;
+  }
+
+  &__toggle {
+    display: flex;
+    background: none;
+    border: none;
+    margin-left: 50px;
+    z-index: 5;
+  }
+
+  &__path {
+    stroke: black;
+    stroke-linecap: round;
+    transform-origin: center;
+    transition: all 0.3s;
+  }
+
+  &__item {
+    &--Accueil {
+      font-family: "Sulphur Point", serif;
+      font-size: 1.25em;
+      display: block;
+      background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Logo-client.svg');
+      background-repeat: no-repeat;
+      background-size: 43%;
+      padding: 30px 0 30px 100px;
+    }
+  }
+
+  .nav__check:checked + .nav__toggle {
+    svg {
+      path:first-of-type {
+        transform: rotate(45deg) translateY(6px);
+      }
+
+      path:nth-of-type(2) {
+        opacity: 0;
+      }
+
+      path:last-of-type {
+        transform: rotate(-45deg) translateY(-7px);
+      }
+    }
+  }
+
+  #menu-toggle:checked ~ .nav__soutenir{
+    display: block;
+    position: absolute;
+    right: 1.875em;
+    top: 30.5em;
+    z-index: 10;
+    background-color: #B87BF9;
+    border-radius: 15px;
+    padding: 15px;
+    color: white;
+  }
+}
+
+
+@media (min-width: $tablet) {
+
+}
+
+
+@media (min-width: $nav) {
+  header {
+    background: none;
+  }
+
+  .nav {
+    &__container {
+      display: flex;
+      align-items: center;
+      flex-direction: row;
+      background-color: white;
+      padding: 18px 30px;
+      border-radius: 10px;
+      gap: 30px;
+      margin: auto 0 auto auto;
+    }
+
+
+    &__toggle, span.arrow {
+      display: none;
+    }
+
+    &__phone {
+      border: none;
+    }
+
+    &__link {
+      display: inline-block;
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover{
+      pointer-events: auto;
+      text-decoration-color: #B87BF9;
+      text-decoration-thickness: 2px;
+    }
+
+    .nav__item--Lieux.de.vie:hover > .nav__submenu{
+      opacity: 1;
+      visibility: visible;
+    }
+
+    &__submenu{
+      margin-top: 2em;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+      li:last-of-type{
+        margin-bottom: 0;
+      }
+    }
+
+    &__soutenir {
+      display: block;
+      margin-left: 3vw;
+      background-color: #B87BF9;
+      border-radius: 0.625em;
+      padding: 1.125em 1.25em;
+
+      a {
+        color: white;
+      }
+    }
+
+    &__item {
+      position: relative;
+
+      &--Accueil {
+        background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Logo-client.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 60px 0 60px 150px;
+
+        a {
+          width: 10.875em;
+          height: 10.875em;
+          margin-left: 10em;
+        }
+
+        span {
+          display: none;
+        }
+      }
+
+      &:has(> .nav__submenu):hover {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+    }
+
+    &__submenu {
+      display: none;
+
+      &-item {
+        margin-top: 2em;
+      }
+
+      &-link {
+        color: black;
+        text-decoration: none;
+      }
+    }
+  }
+
+  .nav__item:hover > .nav__submenu {
+    display: block;
+  }
+}
+
+
+

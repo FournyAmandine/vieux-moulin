@@ -1,0 +1,198 @@
+@import "../settings/breakpoints";
+
+.program{
+  &__fig{
+    margin: auto;
+    img{
+      width: 100%;
+      height: auto;
+      margin-top: 3.375em;
+    }
+    &-tel{
+      display: block;
+      img{
+        width: 100%;
+        height: auto;
+        margin-top: 3.375em;
+      }
+    }
+    &-comp{
+      display: none;
+    }
+  }
+}
+
+.group{
+  &__container{
+    display: flex;
+    flex-direction: column-reverse;
+    ul{
+      width: 90%;
+      margin: auto;
+      line-height: 1.5em;
+      list-style-type: disc;
+    }
+    figure + ul{
+      margin-top: 3.375em;
+    }
+  }
+}
+
+
+.activity{
+  &__container{
+    display: flex;
+    margin-top: 2.5em;
+    position: relative;
+    line-height: 1.5em;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    div{
+      display: flex;
+      width: 85%;
+      margin: auto;
+      flex-direction: column;
+      align-items: center;
+      flex: 0 0 100%;
+      scroll-snap-align: start;
+    }
+  }
+  &__title{
+    font-size: 1.5em;
+    font-weight: 700;
+    margin: 1em auto;
+    text-align: center;
+  }
+  &__date{
+    font-family: "Sulphur Point", serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin-bottom: 1.5em;
+  }
+}
+
+.team{
+  margin-bottom: 13em;
+  &__container{
+    margin: 2.5em auto auto;
+    display: flex;
+    overflow-x: scroll;
+    gap: 1.25em;
+    article{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5em;
+      margin-top: 1em;
+    }
+  }
+  &__title{
+    font-size: 1.5em;
+    margin: 1.5em auto;
+  }
+  &__text{
+    width: 80%;
+    margin: auto;
+  }
+}
+
+
+@media (min-width: $tablet) {
+  .program{
+    &__fig{
+      &-tel{
+        display: none;
+      }
+      &-comp{
+        display: block;
+        img{
+          width: 100%;
+          height: auto;
+          margin-top: 3.375em;
+        }
+      }
+    }
+  }
+
+  .activity{
+    &__container{
+      display: flex;
+      margin-top: 2.5em;
+      position: relative;
+      line-height: 1.5em;
+      gap: 2.5em;
+      overflow-x: auto;
+      div{
+        display: flex!important;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 0 50%;
+        margin: 0;
+      }
+      &__text{
+        width: 70%;
+      }
+    }
+    &__card{
+    }
+  }
+
+  .team{
+    &__container{
+      flex-wrap: wrap;
+      overflow-x: auto;
+      flex-direction: row;
+      article{
+        width: 45%;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $desktop) {
+  section{
+    width: 80%;
+    margin: auto;
+  }
+
+  .team{
+    &__container{
+      article{
+        width: 28%;
+        margin: 20px auto;
+      }
+    }
+  }
+
+  .activity{
+    &__text{
+      width: 70%;
+    }
+    div{
+      flex: 0 0 30%;
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  section{
+    width: 100%;
+    margin: auto;
+  }
+  .program{
+    &__fig{
+      width: 100%;
+    }
+  }
+  .team{
+    &__fig{
+      width: 100%;
+      height: auto;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}

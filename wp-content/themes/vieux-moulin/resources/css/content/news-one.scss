@@ -1,0 +1,101 @@
+@import "../settings/breakpoints";
+
+
+.actu{
+  &__header{
+    background-color: transparent;
+  }
+  &__main{
+    width: 80%;
+    margin: 8em auto;
+  }
+  &__title{
+    font-size: 2.125em;
+    font-family: "Sulphur Point", serif;
+    font-weight: 400;
+    margin-bottom: 1em;
+  }
+  &__figures{
+    display: flex;
+    margin: 5.5em 0;
+    justify-content: space-between;
+    width: 100%;
+    flex-direction: column;
+  }
+  &__article{
+    width: 95.1086956522%;
+    margin: auto;
+    min-height: 970px;
+    &-title{
+      font-size: 1.25em;
+      font-weight: 400;
+    }
+    &-text{
+      display: inline-block;
+      *{
+        margin-top: 2.5em;
+      }
+    }
+  }
+  &__fig{
+    &-one, &-two{
+      width: 100%;
+    }
+  }
+  &__text{
+    line-height: 1.5em;
+  }
+  &__retour{
+    padding: 3.125em;
+    margin-left: 3.125em;
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/png/Arrow_left.svg');
+    background-repeat: no-repeat;
+    background-position: left;
+  }
+  &__img{
+    width: 100%;
+    height: auto;
+  }
+  &__dates{
+    margin-top: 1em;
+  }
+}
+
+.postid-260 .actu__fig-one img.actu__img{
+  display: none;
+}
+
+.postid-260 .gallery__images{
+  width: 100%;
+  justify-content: center;
+}
+
+
+@media (min-width: $tablet) {
+  .actu{
+    &__figures{
+      flex-direction: row;
+    }
+    &__fig{
+      &-one,&-two{
+        width: 70%;
+        margin: auto;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $desktop) {
+  .actu{
+    &__title{
+      font-size: 3em;
+    }
+    &__fig{
+      &-one, &-two{
+        width: 50%;
+        margin: auto;
+      }
+    }
+  }
+}

@@ -1,0 +1,210 @@
+@import "../settings/breakpoints";
+
+body {
+  overflow-x: hidden;
+  background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Fond-tel.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: Nunito, sans-serif;
+  font-weight: 400;
+}
+
+.sro {
+  position: absolute;
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  width: 1px;
+  padding: 0;
+  border: 0;
+  margin: -1px;
+}
+
+/** {
+  outline: 1px solid red;
+}*/
+
+
+main {
+  width: 90%;
+  margin: 14.25em auto auto;
+  max-width: $max-width;
+
+  h1, h2, h3 {
+    font-family: "Sulphur Point", serif;
+    font-weight: 400;
+  }
+}
+
+.carousel {
+  &__prev, &__next {
+    position: absolute;
+    background: none;
+    color: black;
+    border: none;
+    font-size: 30px;
+    bottom: 0;
+    top: 100px;
+  }
+
+  &__prev {
+    left: 1em;
+  }
+
+  &__next {
+    right: 1em;
+  }
+}
+
+#next-el, #prev-el, #prev-vm, #next-vm {
+  top: 3em;
+}
+
+
+#next-activity {
+  top: 5em;
+}
+
+section:nth-of-type(even) {
+  margin-top: 180px;
+  margin-bottom: 180px;
+}
+
+
+a {
+  color: black;
+  text-decoration: none;
+  display: inline-block;
+}
+
+header {
+  max-width: $max-width;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  z-index: 60;
+  height: auto;
+  background-color: white;
+}
+
+header.actu__header{
+  position: static;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+.js-only {
+  display: none !important;
+}
+
+.js-enabled .js-only {
+  display: block !important;
+  position: absolute;
+  background: none;
+  color: black;
+  border: none;
+  font-size: 30px;
+  bottom: 0;
+  top: 100px;
+}
+
+@media (min-width: $tablet) {
+  article:hover:not(.house__article):not(.mission__article):not(.project__card), .activity__card:hover{
+    box-shadow: 0 2px 15px rgb(184, 123, 249);
+    transform: translateY(-5px);
+    border-radius: 20px;
+    padding-top: 1em;
+    padding-bottom: 1em;
+  }
+
+  section:not(section.news__section){
+    box-shadow: 0 2px 15px rgb(184, 123, 249);
+    padding: 2.5em;
+    border-radius: 20px;
+  }
+  #next-el, #prev-el, #prev-vm, #next-vm {
+    top: 1em;
+  }
+
+}
+
+@media (min-width: $nav) {
+  #next-activity, #prev-activity {
+    display: none;
+  }
+  header {
+    background: none;
+  }
+}
+
+
+@media (max-width: $desktop) {
+  .carousel {
+    &__prev, &__next {
+      display: block;
+    }
+  }
+  h1, h2, h3 {
+    font-size: 2.125em;
+  }
+  .active {
+    display: block;
+  }
+}
+
+@media (min-width: $desktop) {
+  body {
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/Fond.jpg');
+  }
+  main h1, h2, h3 {
+    font-size: 3em;
+    font-weight: 400;
+    max-width: 80%;
+  }
+  .carousel {
+    &__prev, &__next {
+      display: none;
+    }
+  }
+  .js-enabled #next-el, .js-enabled #prev-el, .js-enabled #prev-vm, .js-enabled #next-vm, .js-enabled #next-mission, .js-enabled #prev-mission {
+    display: block !important;
+    top: 5em;
+  }
+  .js-enabled .js-only {
+    display: none !important;
+  }
+}
+
+
+@media (min-width: $big-desktop) {
+  main {
+    font-size: clamp(1em, 3vw, 2.7em);
+  }
+  header {
+    font-size: clamp(1em, 3vw, 2em);
+  }
+  footer {
+    width: 100%;
+    font-size: clamp(1em, 3vw, 1.5em);
+  }
+  main h1, h2, h3 {
+    font-size: clamp(3em, 2.5vw, 4em);
+  }
+  section:nth-of-type(even) {
+    margin-top: 300px;
+    margin-bottom: 300px;
+  }
+}
+
+@media (min-width: $max-footer) {
+  footer {
+    font-size: clamp(1em, 3vw, 2.5em);
+  }
+}
+
+
+

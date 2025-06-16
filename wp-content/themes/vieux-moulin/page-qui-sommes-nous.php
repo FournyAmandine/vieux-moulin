@@ -28,7 +28,7 @@ get_header(); ?>
 
     <section class="mission">
         <h1 class="srg__title"><?= get_field('mission_title') ?></h1>
-        <button class="carousel__prev">←</button>
+        <button class="carousel__prev js-only" aria-label="Mission précédante" id="prev-mission">←</button>
         <div class="mission__container">
             <?php
             $missions = new WP_Query([
@@ -56,13 +56,13 @@ get_header(); ?>
                 <p>Il n’y a pas de missions pour le moment</p>
             <?php endif; ?>
         </div>
-        <button class="carousel__next">→</button>
+        <button class="carousel__next js-only" aria-label="Mission suivante"  id="next-mission">→</button>
     </section>
 
     <section class="house">
         <h1 class="house__title-first"><?= get_field('title_houses') ?></h1>
-        <button class="carousel__prev">←</button>
-        <div class="house__container">
+        <button class="carousel__prev js-only" aria-label="Voir le foyer précédent">←</button>
+        <div class="house__container ">
             <?php
             $houses = new WP_Query([
                 'post_type' => 'houses',
@@ -80,7 +80,7 @@ get_header(); ?>
                         <span class="house__description">
                             <?= get_the_excerpt(); ?>
                         </span>
-                        <a class="house__link" href="<?= get_the_permalink(); ?>">Voir plus</a>
+                        <a class="house__link" href="<?=get_field('home_link'); ?>">Voir plus</a>
                     </div>
                 </article>
             <?php endwhile;
@@ -89,19 +89,22 @@ get_header(); ?>
                 <p>Il n’y a pas de foyer pour vous</p>
             <?php endif; ?>
         </div>
-        <button class="carousel__next">→</button>
+        <button class="carousel__next js-only" aria-label="Voir le foyer suivant">→</button>
     </section>
 
     <section class="gallery">
-        <h1 class="gallery__title"><?= get_field('gallery_title') ?></h1>
-        <div class="gallery__images">
-            <?php
-            $images = get_field('image_gallery');
-            foreach ($images as $image):
-                echo '<img src="' . esc_url($image['sizes']['medium']) . '" alt="' . esc_attr($image['alt']) . '" />';
-            endforeach;
-            ?>
-        </div>
+        <h1 class="gallery__title"><?= esc_html(get_field('gallery_title')) ?></h1>
+
+        <?php if( have_rows('image_gallery') ): ?>
+            <div class="gallery__images">
+                <?php while( have_rows('image_gallery') ): the_row();
+                    $image = get_sub_field('image_alone');
+                    if ($image): ?>
+                        <img src="<?= esc_url($image['sizes']['medium']) ?>" alt="<?= esc_attr($image['alt']) ?>" />
+                    <?php endif; ?>
+                <?php endwhile; ?>
+            </div>
+        <?php endif; ?>
     </section>
 
     <section class="videos">
@@ -122,7 +125,7 @@ get_header(); ?>
                         $active_class = $index === 0 ? 'active' : '';
                         ?>
                         <video
-                                autoplay muted playsinline preload="auto"
+                                controls muted playsinline preload="auto"
                                 class="videos-video <?= esc_attr($active_class); ?>">
                             <source src="<?= esc_url($video['url']); ?>"
                                     type="<?= esc_attr($video['mime_type']); ?>">

@@ -1,0 +1,636 @@
+@import "../settings/breakpoints";
+
+
+.carousel{
+  &__prev, &__next{
+    position: absolute;
+    background: none;
+    color: black;
+    border: none;
+    font-size: 30px;
+    bottom: 0;
+    top: 100px;
+  }
+  &__prev{
+    left: 0;
+  }
+  &__next{
+    right: 0;
+  }
+}
+
+
+.srg {
+  &__title {
+    font-family: "Sulphur Point", serif;
+  }
+
+  &__shape{
+    display: none;
+  }
+
+  &__container {
+    display: flex;
+    margin: 0 auto;
+  }
+
+  &__link {
+    display: block;
+    margin: 3.75em auto auto;
+    line-height: 1.5em;
+    width: max-content;
+    padding: 0.625em 3em 0.625em 0;
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Arrow_right.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+
+  &__text {
+    max-width: 90%;
+    margin: auto;
+    p {
+      margin-top: 1.875em;
+      margin-left: 1em;
+      line-height: 1.5em;
+      width: 90%;
+    }
+
+    p + p + p + p {
+      margin-bottom: 1.5em;
+      font-size: 0.75em;
+    }
+  }
+
+  &__figures {
+    display: none;
+  }
+}
+
+.news {
+  position: relative;
+  text-align: center;
+  h3, &__container{
+    text-align: left;
+  }
+  h3{
+    margin-left: 10px;
+  }
+  &__container {
+    display: flex;
+    width: 90%;
+    margin: auto;
+    gap: 2.5em;
+    overflow-x: scroll;
+    article{
+      display: block;
+      width: 100%;
+      position: relative;
+    }
+  }
+  &__card {
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    position: relative;
+  }
+
+  &__text {
+    width: 85%;
+    margin: auto;
+    line-height: 1.5em;
+  }
+
+  &__fig {
+    padding-top: 2.5em;
+    padding-bottom: 1.5em;
+    display: flex;
+    justify-content: center;
+  }
+
+  &__title {
+    font-size: 1.5em;
+    font-family: "Sulphur Point", serif;
+  }
+
+  &__date {
+    font-size: 1.25em;
+    margin: 1em auto;
+  }
+
+  &__date, &__title {
+    text-align: center !important;
+  }
+
+  &__link {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    inset: 0;
+  }
+  &__more{
+    display: block;
+    margin: 5em auto auto;
+    padding: 0.625em 3.125em 0.625em 0;
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Arrow_right.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    width: max-content;
+  }
+}
+
+.donations {
+
+  &__img{
+    width: 100%;
+    height: auto;
+  }
+
+  &__fig{
+    width: 85%;
+    margin: 2.1875em auto auto;
+  }
+
+  &__explanation {
+    padding: 2.5em 0 3.4375em;
+    line-height: 1.5em;
+    width: 85%;
+    margin: auto;
+  }
+
+  &__link {
+    padding: 0.625em 3.125em 0.625em 0;
+    background-image: url(http://vieux-moulin.test/wp-content/uploads/2025/05/Arrow_right.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+    margin: auto;
+    display: block;
+    width: max-content;
+  }
+}
+
+.family {
+  &__container {
+  }
+
+  &__text {
+    p {
+      line-height: 1.5em;
+      margin-top: 2.1875em;
+    }
+  }
+
+  &__content {
+    p{
+      width: 85%;
+      margin: 2.5em auto auto;
+    }
+  }
+
+  &__link {
+    text-decoration: underline;
+  }
+
+  &__figures{
+    display: flex;
+    width: 90%;
+    overflow-x: scroll;
+    margin: 4.375em auto auto;
+  }
+
+  &__fig {
+    &-one {
+      margin: 0 auto 0.875em;
+    }
+
+    &-two {
+      margin-left: 5.8125em;
+    }
+  }
+}
+
+.faq {
+  &__title {
+    text-align: center;
+    margin: auto;
+    margin-bottom: 0.8333333333em;
+  }
+
+  &__container {
+    width: 90%;
+    margin: auto;
+  }
+
+  &__question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: none;
+    border: none;
+    font-size: 1.25em;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 1em;
+    font-family: Nunito, sans-serif;
+
+  }
+
+  &__answer {
+    display: block;
+    padding: 0.5em 0 2em;
+    line-height: 1.5em;
+    width: 90%;
+    margin: auto;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+
+  .js-enabled &__answer{
+    display: none;
+  }
+
+  &__question.active + &__answer {
+    display: block;
+  }
+
+  &__question.active .arrow {
+    transform: rotate(180deg);
+  }
+
+  &__separator img {
+    width: 100%;
+    margin: 0.625em auto 1.25em;
+  }
+}
+
+.helper {
+  text-align: center;
+
+  &__container {
+
+    margin: 4.6875em auto 11.25em;
+    width: 80%;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+  &__card:first-child{
+    margin-bottom: 2.5em;
+  }
+}
+
+.moulin__fig{
+  display: none;
+  &-phone{
+    img{
+      width: 100%;
+      height: auto;
+      margin-bottom: 41.5vh;
+    }
+  }
+}
+
+
+@media (min-width: $tablet) {
+  .moulin__fig{
+    &-phone{
+      img{
+        margin-bottom: 48vw;
+      }
+    }
+  }
+
+  .helper {
+    text-align: center;
+
+    &__container {
+      width: 90%;
+      display: flex;
+      margin: 5em auto;
+      justify-content: space-between;
+    }
+  }
+}
+
+
+
+
+@media (min-width: $desktop) {
+
+  .carousel {
+    &__prev, &__next {
+      display: none;
+    }
+  }
+
+  .srg {
+    &__title {
+      padding: 0;
+    }
+
+    &__container {
+      display: flex;
+      width: 100%;
+    }
+
+    &__link {
+      width: 80%;
+      padding: 0.625em 0;
+      margin: 1.25em 0.825em;
+    }
+
+    &__text {
+      width: 52.576489533%;
+      padding: 3.0625em 0 0 4.75em;
+    }
+
+    &__figures {
+      display: block;
+      padding: 6.875em 6.875em 6.875em 0;
+    }
+
+    &__fig {
+      &-one {
+        margin-left: 2.9375em;
+      }
+
+      &-two {
+        margin: 0.8125em 0 0 1.125em;
+      }
+    }
+  }
+
+  .news {
+    &__container {
+      width: 100%;
+      display: flex;
+      overflow-x: scroll;
+      margin: auto;
+      padding: 10px;
+      article {
+        display: flex !important;
+        width: 35%;
+        box-sizing: border-box;
+        padding-bottom: 0.625em;
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+      }
+    }
+
+    &__card {
+      height: 614px;
+    }
+
+    &__title{
+      text-align: center;
+    }
+
+    &__text {
+      width: 274px;
+    }
+
+    &__fig {
+      padding-top: 4.625em;
+    }
+
+    &__link {
+      width: 100%;
+      height: 100%;
+    }
+
+    &__more {
+      padding: 0.625em 3.125em 0.625em 0;
+    }
+  }
+
+  .donations {
+    &__container {
+      width: 90%;
+      margin: auto;
+    }
+
+    &__content {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+      /*padding: 6.875em 9.6875em 9.125em 7.5em;*/
+    }
+
+    &__text {
+      width: 90%;
+      margin-left: 1.5625em;
+    }
+
+    &__explanation {
+      margin: 0;
+      padding: 2.5em 0 3.4375em;
+      line-height: 1.5em;
+    }
+
+    &__link {
+      margin: 0;
+      padding: 0.625em 3.125em 0.625em 0;
+      width: max-content;
+    }
+
+    &__fig {
+      margin-top: 0;
+    }
+  }
+
+  .family {
+    &__container {
+      width: 90%;
+      margin: auto;
+    }
+
+    &__content {
+      display: flex;
+      /*padding: 7.25em 8.4375em 6.75em 10.6875em;*/
+    }
+
+    &__text {
+      p {
+        margin-top: 1.5em;
+        width: 100%;
+      }
+    }
+
+    &__figures {
+      width: 100%;
+      flex-direction: column;
+      overflow-x: clip;
+      margin: 0;
+      margin-left: 1.5em;
+    }
+
+    &__fig {
+      &-one {
+        margin: 0 0 0.875em;
+      }
+
+      &-two {
+        margin-left: 2.875em;
+      }
+    }
+  }
+
+  .family, .donations {
+    &__title {
+      padding: 0;
+    }
+
+    &__container {
+      background-repeat: no-repeat;
+      margin: auto;
+    }
+  }
+
+  .faq {
+    &__title {
+      text-align: center;
+      margin-bottom: 0.2083333333em;
+    }
+
+    &__container {
+      background-repeat: no-repeat;
+      background-position: center;
+      width: 90%;
+      /*padding: 10.125em 11.5em 11.25em;*/
+      margin-top: 2.5em;
+    }
+
+    &__separator img {
+      margin: 0.625em 0 1.25em -1em;
+    }
+  }
+
+  .helper{
+    &__card{
+      width: 40%;
+    }
+  }
+
+  .moulin__fig {
+    &-phone {
+      img {
+        margin-bottom: 34vw;
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+@media (min-width: $desktop) and (max-width: $nav){
+  .srg{
+    &__link{
+      background-position: right bottom;
+    }
+  }
+}
+
+@media (min-width: $moulin) and (max-width: $desktop){
+  .moulin__fig{
+    &-phone{
+      img{
+        margin-bottom: 42vw;
+      }
+    }
+  }
+}
+
+@media (min-width: $nav) {
+  .moulin__fig{
+    &-phone{
+      img{
+        margin-bottom: 19vw;
+      }
+    }
+  }
+}
+
+@media (min-width: $middle-desktop) {
+  .moulin__fig{
+    &-phone{
+      img{
+        margin-bottom: 12.5vw;
+      }
+    }
+  }
+}
+
+
+@media (min-width: $big-desktop) {
+  .front__title{
+    width: 100%;
+  }
+  .news{
+    &__text{
+      width: 90%;
+    }
+    &__fig{
+      img{
+        width: 80%;
+        height: auto;
+      }
+    }
+  }
+  .srg{
+    p{
+      width: 100%;
+    }
+    &__container{
+      flex-direction: column;
+    }
+    &__text{
+      width: 100%;
+    }
+    &__figures{
+      display: flex;
+      padding: 2em;
+    }
+    &__fig{
+      &-one, &-two{
+        width: 50%;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+  .donations{
+    &__fig{
+      margin-bottom: 0;
+    }
+  }
+
+  .family{
+    &__content{
+      flex-direction: column;
+    }
+    &__figures{
+      display: flex;
+      margin-left: 0;
+      margin-top: 2em;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    &__fig{
+      &-one, &-two{
+        width: 50%;
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+  }
+}

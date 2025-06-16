@@ -1,0 +1,168 @@
+@import "../settings/breakpoints";
+
+.composition{
+  ul{
+    list-style-type: disc;
+    margin-left: 1.5em;
+    margin-top: 0.625em;
+    line-height: 1.5em;
+  }
+  &__card{
+    width: 80%;
+    margin:  2.5em auto auto;
+  }
+  &__title{
+    font-size: 1.875em;
+  }
+  &__text{
+    margin-top: 2.5em;
+    line-height: 1.5em;
+  }
+}
+
+.layout{
+  &__text{
+    width: 80%;
+    line-height: 1.5em;
+    margin: 2.5em auto auto;
+  }
+  &__card:last-of-type{
+    margin-top: 11.25em;
+  }
+  &__fig{
+    display: flex;
+    overflow-x: scroll;
+    margin-top: 1.5em;
+    gap: 2em;
+  }
+}
+
+.galerie{
+  display: flex;
+  flex-direction: column;
+  max-height: 516px;
+  flex-wrap: wrap;
+  gap: 2em;
+  overflow-x: scroll;
+  width: 90%;
+  margin-inline: auto;
+}
+
+.project{
+  position: relative;
+  &__card{
+    width: 90%;
+    margin: auto;
+    line-height: 1.5em;
+    flex-direction: column;
+    display: flex;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+  }
+  &__fig{
+    margin: 2.5em auto 1.25em;
+    img{
+      margin: auto;
+      display: block;
+    }
+  }
+  &__title{
+    font-size: 1.5em;
+    text-align: center;
+    margin: 1.5em auto;
+  }
+  &__text{
+    width: 75%;
+    margin: auto;
+  }
+  &__div{
+    display: flex;
+    gap: 2.5em;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+}
+
+.link{
+  display: block;
+  font-size: 1.25em;
+  margin: 5em auto auto;
+  padding: 0.625em 3.125em 0.625em 0;
+  background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Arrow_right.svg');
+  background-repeat: no-repeat;
+  background-position: right;
+  width: max-content;
+  margin-bottom: 11.25em;
+}
+
+@media (min-width: $tablet) {
+  .layout{
+    &__text{
+      width: 95%;
+    }
+  }
+  .project{
+    &__card{
+      gap: 1.875em;
+      align-items: center;
+      justify-content: center;
+    }
+    &__content{
+      width: 100%;
+    }
+    &__fig{
+      width: 40%;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .project{
+    &__div{
+      margin: auto;
+      width: 90%;
+    }
+    &__card{
+      width: 100%;
+      justify-content: center;
+      flex-direction: row;
+    }
+    &__content{
+      width: 100%;
+    }
+    &__fig{
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+    &__text{
+      width: 100%;
+    }
+  }
+
+  .layout{
+    &__fig{
+      margin: auto;
+      width: max-content;
+      margin-top: 1.25em;
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  .layout{
+    &__fig{
+      width: 100%;
+      img{
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+}
+

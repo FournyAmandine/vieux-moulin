@@ -6,7 +6,7 @@
         <div class="srg__text">
             <h2 class="srg__title"><?= get_field('title_srg'); ?></h2>
             <?= get_field('text_srg') ?>
-            <a class="srg__link" href="<?= get_field('link_srg') ?>">En découvrir plus sur le Vieux Moulin</a>
+            <a class="srg__link" href="<?= esc_url(get_field('link_srg')) ?>">En découvrir plus sur le Vieux Moulin</a>
         </div>
         <div class="srg__figures">
             <figure class="srg__fig-one">
@@ -23,7 +23,7 @@
     <h2>
         Dernières actualités
     </h2>
-    <button class="carousel__prev">←</button>
+    <button class="carousel__prev js-only" aria-label="Voir l'actualité précédente">←</button>
     <div class="news__container">
         <?php
         $news = new WP_Query([
@@ -70,13 +70,13 @@
             <p>Il n’y a pas d’actualités récentes pour le moment</p>
         <?php endif; ?>
     </div>
-    <button class="carousel__next">→</button>
+    <button class="carousel__next js-only" aria-label="Voir l'actualité suivante">→</button>
     <a class="news__more" href="<?= get_permalink(88) ?>">Voir plus d'actualités</a>
 </section>
 
 <section class="house">
-    <h1 class="house__title-first"><?= get_field('title_houses') ?></h1>
-    <button class="carousel__prev">←</button>
+    <h2 class="house__title-first"><?= get_field('title_houses') ?></h2>
+    <button aria-labelledby="Foyer précédent" class="carousel__prev js-only">←</button>
     <div class="house__container">
         <?php
         $houses = new WP_Query([
@@ -91,7 +91,7 @@
                         <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'house__img']); ?>
                     </figure>
                     <div class="house__text">
-                        <h2 class="house__title"><?= get_field('title_houses') ?></h2>
+                        <h3 class="house__title"><?= get_field('title_houses') ?></h3>
                         <div class="house__description">
                             <?= get_the_excerpt(); ?>
                         </div>
@@ -104,14 +104,14 @@
             <p>Il n’y a pas de foyer pour vous</p>
         <?php endif; ?>
     </div>
-    <button class="carousel__next">→</button>
+    <button aria-label="Foyer suivant" class="carousel__next js-only">→</button>
 </section>
 
 <section class="donations">
     <div class="donations__container">
         <div class="donations__content">
             <div class="donations__text">
-                <h1 class="donations__title"><?= get_field('title_donations'); ?></h1>
+                <h2 class="donations__title"><?= get_field('title_donations'); ?></h2>
                 <div class="donations__explanation">
                     <?= get_field('text_donations') ?>
                 </div>
@@ -128,7 +128,7 @@
     <div class="family__container">
         <div class="family__content">
             <div class="family__text">
-                <h1 class="family__title"><?= get_field('title_family'); ?></h1>
+                <h2 class="family__title"><?= get_field('title_family'); ?></h2>
                 <?= get_field('text_family') ?>
             </div>
             <div class="family__figures">
@@ -144,7 +144,7 @@
 </section>
 
 <section class="faq">
-    <h1 class="faq__title">FAQ</h1>
+    <h2 class="faq__title">FAQ</h2>
     <div class="faq__container">
         <?php
         $themes = get_terms([
@@ -180,7 +180,7 @@
             endif;
 
             if ($index < $last_index):
-                echo '<div class="faq__separator"><img src="http://vieux-moulin.test/wp-content/uploads/2025/05/Separateur.png" alt=""></div>';
+                echo '<div class="faq__separator"><img src="/wp-content/themes/vieux-moulin/resources/img/svg/Separateur.svg" alt=""></div>';
             endif;
 
         endforeach;
@@ -189,7 +189,7 @@
 </section>
 
 <section class="helper">
-    <h1 class="helper__title"><?= get_field('title_helpers') ?></h1>
+    <h2 class="helper__title"><?= get_field('title_helpers') ?></h2>
     <div class="helper__container">
         <?php
         $helpers = new WP_Query([
@@ -212,11 +212,9 @@
     </div>
 </section>
 
-<figure class="moulin__fig">
-    <img src="/wp-content/themes/vieux-moulin/resources/img/Vieux-Moulin.svg" alt="Vieux Moulin en dessin">
-</figure>
+
 <figure class="moulin__fig-phone">
-    <img src="/wp-content/themes/vieux-moulin/resources/img/Moulin.svg" alt="Vieux Moulin en dessin">
+    <img src="/wp-content/themes/vieux-moulin/resources/img/svg/Moulin.svg" alt="Vieux Moulin en dessin">
 </figure>
 
 <?php get_footer(); ?>

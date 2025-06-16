@@ -1,0 +1,91 @@
+@import "../settings/breakpoints";
+
+
+.page-id-42{
+  main{
+    width: 80%;
+  }
+}
+
+.contact{
+  margin: auto;
+  &__title{
+    font-size: 3em;
+    font-family: "Sulphur Point", serif;
+    margin-top: 1.7083333333em;
+    margin-bottom: 1.25em;
+    font-weight: 400;
+  }
+  &__hook{
+    font-size: 1.25em;
+    line-height: 1.5em;
+  }
+  &__btn{
+    border: none;
+    text-align: right;
+    background-image: url('/wp-content/themes/vieux-moulin/resources/img/svg/Arrow_right.svg');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-color: transparent;
+    padding: 10px 65px 10px 0;
+    font-family: Nunito, sans-serif;
+  }
+  &__form{
+    margin: 89px auto 0;
+    &-name{
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    &-submit{
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+  &__field{
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    &-input, &-select{
+      width: 100%;
+      background-color: rgba(215, 215, 215, 0.15);
+      border: 1px solid black;
+      border-radius: 8px;
+      height: 50px;
+    }
+    &-label{
+      margin-bottom: 10px;
+    }
+    &-error{
+      margin-top: 10px;
+      font-size: 14px;
+      color: red;
+    }
+  }
+}
+
+@media (min-width: $tablet) {
+  .contact{
+    &__form{
+      &-name{
+        flex-direction: row;
+        justify-content: center;
+        div:nth-of-type(2){
+          margin-left: 20px;
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  .contact{
+    &__title{
+      font-size: clamp(3em, 3vw, 5em);
+    }
+    &__btn{
+      font-size: clamp(1em, 3vw, 1.5em);
+    }
+  }
+}

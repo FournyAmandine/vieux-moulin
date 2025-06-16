@@ -1,0 +1,153 @@
+@import "../settings/breakpoints";
+
+.news__articles .carousel__prev{
+  left: 1em;
+}
+#next__news{
+}
+.news {
+
+  &__filters {
+  }
+
+  &__filter {
+    margin-right: 1.75em;
+    pointer-events: auto;
+    margin-bottom: 1em;
+  }
+
+  &__filter:hover {
+    text-decoration: underline;
+    text-decoration-color: #EFBAE5;
+    text-decoration-thickness: 2px;
+  }
+
+  &__active {
+    text-decoration: underline;
+    text-decoration-color: #EFBAE5;
+    text-decoration-thickness: 2px;
+    font-weight: 700;
+    margin-right: 1.75em;
+    padding-bottom: 5px;
+  }
+
+  &__page {
+    &-title {
+      font-weight: 400;
+      margin-top: 2.9411764706em;
+      margin-bottom: 1.5em;
+    }
+  }
+
+  &__image{
+    img{
+      margin: auto;
+      display: block;
+      margin-bottom: 1.25em;
+    }
+  }
+
+  &__articles {
+    width: 80%;
+    margin: auto auto 6.875em;
+  }
+
+  &__article {
+    display: none;
+    position: relative;
+    margin-bottom: 3em;
+  }
+
+  &__article.active {
+    display: block;
+  }
+
+  &__link {
+    inset: 0;
+  }
+
+  &__card {
+    height: auto;
+  }
+
+  &__title {
+    margin: auto auto 1em;
+  }
+
+  p {
+    line-height: 1.5em;
+  }
+
+  &__div{
+
+  }
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 1em;
+}
+
+
+@media (min-width: $tablet) {
+  .carousel__prev{
+    display: none;
+  }
+  #next__news{
+    display: none;
+  }
+  .news {
+    &__filters {
+    }
+    &__filter {
+      font-size: 1.25em;
+    }
+    &__active {
+      font-size: 1.25em;
+    }
+
+    &__page {
+      &-title {
+      }
+    }
+
+    &__div {
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__article {
+      display: flex !important;
+      width: 50%;
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+
+    a {
+      margin-left: 1.75em;
+    }
+
+    span {
+      margin-left: 1.75em;
+      font-weight: 700;
+      text-decoration: underline;
+      text-decoration-color: #EFBAE5;
+      text-decoration-thickness: 2px;
+      font-size: 1.2em;
+    }
+  }
+}
+
+
+@media (min-width: $desktop) {
+  .news {
+    &__article {
+      width: 33%;
+    }
+  }
+}

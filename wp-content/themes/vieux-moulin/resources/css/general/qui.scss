@@ -1,0 +1,169 @@
+@import "../settings/breakpoints";
+
+
+.srg, .history{
+  p, &__fig{
+    margin: 2.5em auto auto;
+  }
+  p{
+    line-height: 1.5em;
+    width: 90%;
+  }
+  &__fig{
+    width: 90%;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.history{
+  &__fig{
+    margin: 2.5em auto 1.875em;
+  }
+}
+
+.mission{
+  position: relative;
+  img{
+    width: 100%;
+    height: auto;
+  }
+  &__container{
+    display: flex;
+    gap: 2.5em;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+  &__title{
+    font-size: 2em;
+  }
+  &__article{
+    display: block;
+    margin: 2.5em auto auto;
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    p{
+      margin-top: 2.5em;
+      line-height: 1.5em;
+    }
+  }
+  &__card{
+    width: 75%;
+    margin: auto;
+  }
+}
+
+.gallery{
+  &__images{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 516px;
+    overflow-x: scroll;
+    gap: 2.5em;
+    margin-top: 2.5em;
+    img{
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+.videos{
+  &__carousel{
+    position: relative;
+    margin-top: 2.5em;
+    display: flex;
+    flex-direction: column;
+  }
+  &-video{
+    width: 100%;
+    height: auto;
+    margin-bottom: 1.5em;
+  }
+}
+
+.partner{
+  margin-bottom: 11.25em;
+}
+
+
+
+@media (min-width: $tablet) {
+  .srg, .history{
+    &__content{
+      display: flex;
+      margin-top: 2.5em;
+      align-items: center;
+      gap: 1em;
+    }
+    &__desc{
+      width: 90%;
+    }
+    &__fig{
+      width: 50%;
+      margin: 0;
+    }
+  }
+
+  .gallery{
+    &__images{
+      flex-direction: row;
+      overflow: clip;
+      height: auto;
+      gap: 1.25em;
+      max-height: none;
+      img{
+        width: 30%;
+      }
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .mission{
+    &__content{
+      display: flex;
+      align-items: center;
+    }
+    &__text{
+      width: 100%;
+    }
+    &__fig{
+      width: 44%;
+    }
+    &__article{
+      width: 92%;
+    }
+  }
+
+  .house{
+    &__article:first-of-type{
+        flex-direction: row;
+        gap: 0.625em;
+    }
+  }
+
+  .srg{
+    &__desc{
+      width: 100%;
+    }
+  }
+}
+
+
+@media (min-width: $big-desktop) {
+  .mission{
+    &__content{
+      flex-direction: column;
+    }
+  }
+  .srg, .history {
+    p {
+      line-height: 1.5em;
+      width: 100%;
+    }
+  }
+}

@@ -14,7 +14,7 @@ get_header();
     </section>
 
     <section class="group">
-        <h1><?= get_field('group_title') ?></h1>
+        <h2><?= get_field('group_title') ?></h2>
         <div class="group__container">
             <figure class="program__fig">
                 <?= wp_get_attachment_image(get_field('additional_image'), size: 'small', attr: ['class' => 'program__img']); ?>
@@ -24,9 +24,9 @@ get_header();
     </section>
 
     <section class="house">
-        <h1 class="house__title-first"><?= get_field('title_houses') ?></h1>
+        <h2 class="house__title-first"><?= get_field('title_houses') ?></h2>
         <div class="house__container">
-            <button class="carousel__prev">←</button>
+            <button class="carousel__prev js-only" aria-label="Voir le foyer précédent">←</button>
             <?php
             $houses = new WP_Query([
                 'post_type' => 'houses',
@@ -40,11 +40,11 @@ get_header();
                         <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'house__img']); ?>
                     </figure>
                     <div class="house__text">
-                        <h2 class="house__title"><?= get_field('title_houses') ?></h2>
+                        <h3 class="house__title"><?= get_field('title_houses') ?></h3>
                         <span class="house__description">
                             <?= get_the_excerpt(); ?>
                         </span>
-                        <a class="house__link" href="<?= get_the_permalink(); ?>">Voir plus</a>
+                        <a class="house__link" href="<?=get_field('home_link'); ?>">Voir plus</a>
                     </div>
                 </article>
             <?php endwhile;
@@ -52,14 +52,14 @@ get_header();
             else: ?>
                 <p>Il n’y a pas de foyer pour vous</p>
             <?php endif; ?>
-            <button class="carousel__next">→</button>
+            <button class="carousel__next js-only" aria-label="Voir le foyer suivant">→</button>
         </div>
     </section>
 
     <section class="activity">
-        <h1><?= get_field('title_activities'); ?></h1>
+        <h2><?= get_field('title_activities'); ?></h2>
         <div class="activity__container">
-            <button class="carousel__prev">←</button>
+            <button class="carousel__prev js-only" aria-label="Voir l'activité précédente">←</button>
             <?php
             $activities = new WP_Query([
                 'post_type' => 'news',
@@ -82,7 +82,7 @@ get_header();
                     <figure class="activity__fig">
                         <?= get_the_post_thumbnail(size: 'small', attr: ['class' => 'activity__img']); ?>
                     </figure>
-                    <h2 class="activity__title"><?= get_the_title(); ?></h2>
+                    <h3 class="activity__title"><?= get_the_title(); ?></h3>
                     <p class="activity__date"><time datetime="<?= date('c', $date = get_field('date')); ?>"><?= date_i18n('d F Y', $date); ?></time></p>
                     <p class="activity__text">
                         <?= get_the_excerpt(); ?>
@@ -92,12 +92,12 @@ get_header();
                 wp_reset_postdata(); else: ?>
                 <p>Il n’y a pas d’actualités pour le moment</p>
             <?php endif; ?>
-            <button class="carousel__next">→</button>
+            <button class="carousel__next js-only" aria-label="Voir l'activité suivante">→</button>
         </div>
     </section>
 
     <section class="team">
-        <h1 class="team__page-title"><?= get_field('title_team') ?></h1>
+        <h2 class="team__page-title"><?= get_field('title_team') ?></h2>
         <div class="team__container">
             <?php
             $people = new WP_Query([
@@ -111,7 +111,7 @@ get_header();
                     <figure class="team__fig">
                         <?= wp_get_attachment_image(get_field('profile_image'), size: 'small', attr: ['class' => 'team__img']); ?>
                     </figure>
-                    <h2 class="team__title"><?= get_the_title(); ?></h2>
+                    <h3 class="team__title"><?= get_the_title(); ?></h3>
                     <p class="team__text">
                         <?= get_the_content(); ?>
                     </p>

@@ -1,0 +1,110 @@
+@import "../settings/breakpoints";
+
+.house{
+  position: relative;
+  &__container{
+    margin: 2.5em auto 0;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+  }
+  &__title{
+    font-family: "Sulphur Point", serif;
+    font-size: 1.25em;
+    font-weight: 700;
+    margin: 1.5em auto;
+  }
+  &__container, &__article, &__text{
+    display: flex;
+  }
+
+  &__article{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 2.5em 3em auto;
+  }
+
+  &__text{
+    flex-direction: column;
+    justify-content: center;
+  }
+  &__link{
+    width: max-content;
+    margin: auto;
+    padding: 0.625em 3em;
+    background-image: url(http://vieux-moulin.test/wp-content/uploads/2025/05/Arrow_right.svg);
+    background-repeat: no-repeat;
+    background-position: right;
+  }
+  &__description{
+    margin: 0 auto 1.75em;
+    line-height: 1.5em;
+  }
+  &__fig{
+    img{
+      margin: auto;
+      display: block;
+    }
+  }
+}
+
+@media (min-width: $desktop) {
+  .house{
+    &__container{
+      margin: 0 auto;
+      gap: 40px;
+    }
+    &__article{
+      margin-top: 2.5em;
+      display: flex !important;
+    }
+    &__article:nth-of-type(1){
+      flex-direction: row;
+    }
+    &__article:nth-of-type(2){
+      flex-direction: row-reverse;
+    }
+  }
+}
+
+
+
+@media (min-width: $nav) {
+  .house{
+    &__title{
+      margin: 0;
+      &-first{
+        max-width: 59.4557823129%;
+      }
+    }
+    &__text{
+      width: 35.7142857143%;
+    }
+    &__article:nth-of-type(1) div.house__text{
+      margin-left: 1.5em
+    }
+    &__article:nth-of-type(2) div.house__text{
+      margin-right: 1.5em;
+    }
+    &__link{
+      width: 79.7101449275%;
+      padding: 0.625em 0;
+      margin: 0;
+    }
+    &__description{
+      margin: 1.125em auto 1.75em;
+    }
+  }
+}
+
+@media (min-width: $big-desktop) {
+  .house{
+    &__text{
+      width: 90%;
+    }
+    &__title{
+      text-align: center;
+    }
+  }
+}
+

@@ -1,0 +1,59 @@
+@import "../settings/breakpoints";
+
+.resource{
+  width: 90%;
+  margin: auto auto 13.375em;
+  &__page{
+    &-title{
+      margin-top: 2.9411764706em;
+      margin-bottom: 1.5em;
+    }
+  }
+  &__content{
+    display: block;
+    padding: 0.5em 0 2em;
+    line-height: 1.5em;
+    width: 90%;
+    margin: auto;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  .js-enabled &__content{
+    display: none;
+  }
+  .js-enabled .resource__item.active .resource__content{
+    display: block;
+  }
+  &__item{
+    border-bottom: 2px solid black;
+
+  }
+  &__title{
+    font-family: Nunito, sans-serif;
+    background: none;
+    width: 100%;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.25em;
+    padding: 1em;
+    text-align: left;
+  }
+  &__title.active + &__content {
+    display: block;
+  }
+
+  &__title.active .arrow {
+    transform: rotate(180deg);
+  }
+}
+
+@media (min-width: $desktop) {
+  .resource {
+    width: 80%;
+    &__page {
+      &-title {
+        padding: 0;
+      }
+    }
+  }
+}
